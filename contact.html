@@ -42,20 +42,24 @@
   <a href="https://instagram.com" target="_blank">Instagram</a>
 </footer>
 
-<!-- GTM form submit tracking script -->
+<!-- ✅ Working Script for dataLayer and Redirect -->
 <script>
   document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault(); // Stop actual submission
+    e.preventDefault(); // prevent page reload
 
+    // ✅ Ensure dataLayer is initialized
     window.dataLayer = window.dataLayer || [];
+
+    // ✅ Push to dataLayer
     window.dataLayer.push({
       event: "form_submit",
       form_id: "contact_form"
     });
 
+    // ✅ Redirect to thank you page after short delay
     setTimeout(function () {
       window.location.href = "thankyou.html";
-    }, 500);
+    }, 300);
   });
 </script>
 
