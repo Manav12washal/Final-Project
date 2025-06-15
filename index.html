@@ -71,5 +71,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
   <script src="script.js"></script>
+
+  <script>
+  const video = document.getElementById("demo-video");
+
+  video.addEventListener("play", function () {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "video_play",
+      video_id: "demo-video"
+    });
+  });
+</script>
+  
 </body>
 </html>
