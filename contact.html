@@ -3,71 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact - SmartSite</title>
+  <title>Contact SmartSite</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">SmartSite</div>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <h1>Contact Us</h1>
-    <section>
-      <form id="contact-form">
-        <div style="margin-bottom: 1rem;">
-          <input type="text" name="name" placeholder="Your Name" required style="padding: 0.5rem; width: 300px;" />
-        </div>
-        <div style="margin-bottom: 1rem;">
-          <input type="email" name="email" placeholder="Your Email" required style="padding: 0.5rem; width: 300px;" />
-        </div>
-        <div style="margin-bottom: 1rem;">
-          <textarea name="message" placeholder="Your Message" required style="padding: 0.5rem; width: 300px; height: 100px;"></textarea>
-        </div>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
-    </section>
-  </main>
+<header>
+  <nav>
+    <div class="logo">SmartSite</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-<!--   <script>
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault(); // prevent actual submission
-      // Here you could collect data or send it to an API if needed
-      window.location.href = "thankyou.html"; // redirect to thank you page
-    });
-  </script> -->
-  
+<main>
+  <h1>Contact Us</h1>
+  <section>
+    <form id="contact-form">
+      <div style="margin-bottom: 1rem;">
+        <input type="text" name="name" placeholder="Your Name" required style="padding: 0.5rem; width: 300px;" />
+      </div>
+      <div style="margin-bottom: 1rem;">
+        <input type="email" name="email" placeholder="Your Email" required style="padding: 0.5rem; width: 300px;" />
+      </div>
+      <div style="margin-bottom: 1rem;">
+        <textarea name="message" placeholder="Your Message" required style="padding: 0.5rem; width: 300px; height: 100px;"></textarea>
+      </div>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+</main>
 
-  <footer>
-    &copy; 2025 SmartSite | Follow us:
-    <a href="https://instagram.com" target="_blank">Instagram</a>
-  </footer>
+<footer>
+  &copy; 2025 SmartSite | Follow us:
+  <a href="https://instagram.com" target="_blank">Instagram</a>
+</footer>
 
-  <script>
-  document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent default form submission
+<!-- GTM form submit tracking script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var form = document.getElementById("contact-form");
 
-    // Push event to dataLayer
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "form_submit",
-      form_id: "contact_form"
-    });
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // prevent form from submitting immediately
 
-    // Optional: Redirect to Thank You page after short delay
-    setTimeout(function () {
-      window.location.href = "thankyou.html";
-    }, 500);
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "form_submit",
+          form_id: "contact_form"
+        });
+
+        // Redirect after short delay
+        setTimeout(function () {
+          window.location.href = "thankyou.html";
+        }, 500);
+      });
+    }
   });
 </script>
-  
+
 </body>
 </html>
