@@ -44,25 +44,18 @@
 
 <!-- GTM form submit tracking script -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var form = document.getElementById("contact-form");
+  document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Stop actual submission
 
-    if (form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault(); // prevent form from submitting immediately
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "form_submit",
+      form_id: "contact_form"
+    });
 
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: "form_submit",
-          form_id: "contact_form"
-        });
-
-        // Redirect after short delay
-        setTimeout(function () {
-          window.location.href = "thankyou.html";
-        }, 500);
-      });
-    }
+    setTimeout(function () {
+      window.location.href = "thankyou.html";
+    }, 500);
   });
 </script>
 
