@@ -50,5 +50,24 @@
     &copy; 2025 SmartSite | Follow us:
     <a href="https://instagram.com" target="_blank">Instagram</a>
   </footer>
+
+  <script>
+  document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent default form submission
+
+    // Push event to dataLayer
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "form_submit",
+      form_id: "contact_form"
+    });
+
+    // Optional: Redirect to Thank You page after short delay
+    setTimeout(function () {
+      window.location.href = "thankyou.html";
+    }, 500);
+  });
+</script>
+  
 </body>
 </html>
